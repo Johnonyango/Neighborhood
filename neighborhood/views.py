@@ -17,3 +17,7 @@ def business(request):
 def services(request):
     return render(request, 'govern.html')
 
+def posts(request):
+    return render(request, 'posts.html')
+
+
