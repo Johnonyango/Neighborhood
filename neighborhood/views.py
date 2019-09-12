@@ -10,3 +10,10 @@ def login(request):
 
 def profile(request):
     return render(request, 'profile.html')
+
+def business(request):
+    return render(request, 'businesses.html')
+
+def services(request):
+    return render(request, 'govern.html')
+
