@@ -20,4 +20,7 @@ def services(request):
 def posts(request):
     return render(request, 'posts.html')
 
+def change_hood(request):
+    return render(request, 'change.html')
+
 
