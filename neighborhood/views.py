@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import HttpResponse, Http404, HttpResponseRedirect
 
 
 # Create your views here.
@@ -12,6 +13,26 @@ def profile(request):
     return render(request, 'profile.html')
 
 def business(request):
+  john = request.user.id
+  profile = Profile.objects.get(user=john)
+
+  if request.method == 'POST':
+    form = NewBusinessForm(request.POST)
+    if form.is_valid():
+      business = form.save(commit=False)
+      business.neighbourhood = profile.neighbourhood
+      business.save()
+    return redirect('business')
+
+  else:
+    form = NewBusinessForm()
+
+  return render(request, 'business.html',{'form':form,'profile':profile})
+
+
+  else:
+    form = NewBusinessForm()
+
     return render(request, 'businesses.html')
 
 def services(request):
