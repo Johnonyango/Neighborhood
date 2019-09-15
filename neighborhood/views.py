@@ -1,8 +1,12 @@
 from django.shortcuts import render
 from django.http import HttpResponse, Http404, HttpResponseRedirect
+from .forms import NeighForm, NewBusinessForm, ProfileForm,NewCommentForm, ContactForm, NewPostForm
+from django.contrib.auth.decorators import login_required
+from django.core.exceptions import ObjectDoesNotExist
 
 
 # Create your views here.
+@login_required(login_url='/accounts/login/')
 def welcome(request):
     id = request.user.id
     profile = Profile.objects.get(user=id)
