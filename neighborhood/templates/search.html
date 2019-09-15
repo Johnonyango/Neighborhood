@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+        <div class="intro">
+                <h2>Searching ...</h2>
+            </div>
+            <hr>
+        
+{% if searched_businesses %}
+    <h5>Found {{ searched_businesses|length }} business(s) for the searched term '{{message}}'</h5>
+{% else %}
+    <h5> Found 0 business(s) for the search term '{{message}}'</h5>
+{% endif %}
+
+<br>
+
+{% if searched_businesses %}
+<div class="row">
+        {% for business in searched_businesses %}
+            <div class="col-sm-4" style="margin-bottom: 2em;">
+              <div class="card bg-">
+                <div class="card-body">
+                  <h5 class="card-title firstletter" style="color:black">{{business.name}}</h5>
+                  <p class="card-text"><a class='maillink' href="mailto:{{profile.contact}}">{{business.email}}</a></p>
+                  <p class="card-text" style="color:black">Neighbourhood: {{business.neighbourhood}}</p>
+                  <p class="card-text" style="color:black">{{business.pub_date}}</p>
+                </div>
+              </div>
+            </div>
+        {% endfor %}
+        </div>
+{% endif %}
+
+
+
+</div>
+
+{% endblock %}

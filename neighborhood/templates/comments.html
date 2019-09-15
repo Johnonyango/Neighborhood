@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<br>
+<h5 style="text-align:center">PEOPLE'S COMMENTS</h5>
+{% if comments %}
+<div class="row">
+{% for comment in comments %}
+<div class="col-md-4" style="margin-bottom: 2em;">
+        <div class="card bg-dark">
+        <div class="card-body">           
+            <h5 class="card-header">{{comment.comment}}</h5>
+        <h5 class="card-text firstletter">Neighbourhood: {{ comment.neighbourhood}}</h5>
+        <p style="font-style:italic;text-decoration:underline">Posted by: {{comment.postername}}</p>      
+        <footer class="blockquote-footer" style="color:white;font-weight:bold"><cite name="Source name">Commented On: {{comment.pub_date}}</cite></footer>
+    </div>
+  </div>
+</div>
+
+{% endfor %}
+</div>
+<div class="container" style="text-align:center">
+    <h3>Make new comments now</h3>
+    <a href="{% url 'newcomment'%}"><button type="button" class="btn btn-primary">Comment</button></a>
+    </div>
+
+{%else%}
+<div class="container" style="text-align:center">
+<h3>There are no comments??</h3>
+<p>Make new comments now</p>
+<a href="{% url 'newcomment'%}"><button type="button" class="btn btn-primary">Comment</button></a>
+</div>
+{% endif %}
+{% endblock%}

@@ -27,11 +27,11 @@ def business(request):
 
     if request.method == 'POST':
         form = NewBusinessForm(request.POST)
-        if form.is_valid():
+    if form.is_valid():
         business = form.save(commit=False)
         business.neighbourhood = profile.neighbourhood
         business.save()
-    return redirect('business')
+        return redirect('business')
 
     else:
         form = NewBusinessForm()
@@ -51,6 +51,6 @@ def posts(request):
     return render(request, 'posts.html')
 
 def change_hood(request):
-    return render(request, 'change.html')
+    return render(request, 'hood.html')
 
 
