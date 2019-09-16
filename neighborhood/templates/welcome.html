@@ -1,0 +1,95 @@
+{% extends "base.html" %} {% load bootstrap3 %} {% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>NEIGHBORHOOD</title>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+    <link href="https://fonts.googleapis.com/css?family=Major+Mono+Display" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Lobster+Two&display=swap" rel="stylesheet">
+
+    
+</head>
+
+<body>
+    </header>
+    <h1 style="text-align:center;color:white;font-family: 'Lobster Two', cursive;">WELCOME TO NEIGHBORHOOD <br> CONNECT WITH OTHERS</h1>
+
+    <div class="row">
+        <div class="col-md-8">
+
+        </div>
+        <div class="col-md-4">
+                <a href="javascript:void(0)" class="closebtn" onclick="closePop()">&times;</a>
+                <form action="{% url 'chat'%}" class="form-container">
+                    <h1 style="color:white; font-family: 'Lobster Two', cursive;">Start live chart here:</h1>
+    
+                    <div class="row">
+                    <textarea placeholder="Type a message.." name="msg" required></textarea>
+                    </div>
+    
+                    <button class="btn-success" type="submit" class="btn">Send</button>
+                    <button class="btn-danger" type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                </form>
+        </div>
+       
+    </div>
+    <script>
+        function openForm() {
+            document.getElementById("myForm").style.display = "block";
+        }
+        function closeForm() {
+            document.getElementById("myForm").style.display = "none";
+        }
+        function closePop() {
+            document.getElementById("myForm").style.width = "0";
+        }
+    
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () { scrollFunction() };
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("myBtn").style.display = "block";
+            } else {
+                document.getElementById("myBtn").style.display = "none";
+            }
+        }
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+              $(document).ready(function(){
+                // Activate Carousel
+                $("#Carousel").carousel();
+                  
+                // Enable Carousel Indicators
+                $(".item1").click(function(){
+                  $("#Carousel").carousel(0);
+                });
+                $(".item2").click(function(){
+                  $("#Carousel").carousel(1);
+                });
+                $(".item3").click(function(){
+                  $("#Carousel").carousel(2);
+                });
+                  
+                // Enable Carousel Controls
+                $(".carousel-control-prev").click(function(){
+                  $("#Carousel").carousel("prev");
+                });
+                $(".carousel-control-next").click(function(){
+                  $("#Carousel").carousel("next");
+                });
+              });
+              </script>
+             </body>
+            </html>
+            
+      {% endblock %}
