@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+<hr>
+  <div class="alert alert-success" style="margin-right:10%;margin-left:30%">
+   You have successifully joined <strong style="color:black">{{neighbourhood.name}}</strong> neighbourhood. To change your neighborhood, click<a href="{% url 'newprofile' %}"> New Profile</a> </div>
+      
+
+  <div class="col-md-4" style="color:white">
+      <img class='streamimg' src="{{neighbourhood.image.url}}" height="300px" width="95%" alt="{{ neighbourhood.name }}"></img>
+      <br>
+      <div class="col-md-12" style="color:white">
+        <h5 class="card-title firstletter">{{neighbourhood.name}}</h5>
+        <p class="card-text firstletter">{{ neighbourhood.description | truncatechars:450 }}</p>
+        <p class="card-text" style="font-style:italic;">{{neighbourhood.pub_date}}</p>
+        <h5>{{neighbourhood.occupants_count}}</h5>
+        <p class="card-title firstletter"> {{neighbourhood.location}}</p>
+
+    </div>
+  </div>
+  <p></p>
+
+  <br>
+
+<div class="well" style="text-align:center">
+  <a href="{% url 'mypost' %}"><button type="button" class="btn btn-info">View Posts</button></a>   
+    <a href="{% url 'newneighbourhood' %}"><button type="button" class="btn btn-info">Update Neighbourhhod</button></a> 
+    <a href="{% url 'welcome' %}"><button type="button" class="btn btn-info">Exit Hood</button></a> 
+
+    <br>
+    
+  </div>
+  <hr>
+  <div class="well" style="text-align:center">
+        <p>
+        <a href="{% url 'business' %}"><button type="button" class="btn btn-info">Businessess</button></a> 
+        <a href="{% url 'contacts' %}"><button type="button" class="btn btn-info">Contacts</button></a>   
+      </p>
+      </div>
+    </div>
+    <br>
+    <br>
+  </div>
+{% endblock %}
