@@ -1,4 +1,4 @@
-{%extends "registration/base.html"%} {% load bootstrap4 %} {% block content %}
+{%extends "registration/base.html"%} {% load bootstrap3 %} {% block content %}
 <hr>
 <div class="card bg-dark text-white" style="margin-left:20%;margin-right:20%">
        
@@ -17,18 +17,21 @@
         </div>
         <div class="panel-body">
 
-          <form action="/accounts/login/" method="post">
-            {% csrf_token %} {% bootstrap_form form%}
-
-            <div class="form-group">
-              <input type="submit" class="btn btn-primary btn-sm" value="Login">
-            </div>
-
-            <input type="hidden" name="next" value="{{next}}">
-            <p> Don't have an account? <a href="/accounts/register">Register</a>
-                <p>Admin Password? <a href="/accounts/password/change">Change Password</a>
-                    <p>Homepage <a href="{% url 'welcome' %}">Home</a></p>
-          </form>
+            <form  action="/accounts/login/" method="post">
+              {% csrf_token %}
+              {% bootstrap_form form%}
+  
+              <div class="form-group">
+                <input type="submit" class="btn btn-primary btn-sm" value="Login"><br>
+                <p>Don't have an account? <a href="/accounts/register">Sign Up</a></p>
+              </div>
+               
+              <p> Don't have an account? <a href="/accounts/register">Register here</a>
+                <p>Did you forget password ? <a href="/accounts/password/change">Change Password</a> <br>
+                    <a href="{% url 'welcome' %}">Go to Homepage</a>
+              <input type="hidden" name="next" value="{{next}}">
+  
+            </form>
 
         </div>
 
