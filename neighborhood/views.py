@@ -156,7 +156,7 @@ def newprofile(request):
       form.save()
       
 
-    return redirect('profile', frank)
+    return redirect('profile', user)
 
   else:
     form = ProfileForm()
