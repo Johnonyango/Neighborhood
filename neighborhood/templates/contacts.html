@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+
+  <div class="intro">
+    <h2>Contacts</h2>
+  </div>
+<hr>
+<br>
+
+{% if contacts %}
+<div class="row">
+{% for contact in contacts %}
+      <div class="col-sm-4" style="margin-bottom: 2em;">
+        <div class="card bg-light">
+          <div class="card-body">
+              <h5 class="card-title firstletter" style="color:black">{{contact.name}}</h5>
+            <p class="card-text"><a class='maillink' href="tel:{{profile.contact}}" >{{contact.contact}}</a></p>
+            <p class="card-text"><a class='maillink' href="mailto:{{profile.contact}}" >{{contact.email}}</a></p>
+            <p class="card-text" style="color:black;font-style: italic">Pub On: {{contact.pub_date}}</p>
+            <p class="card-text" style="color:black;font-style: italic">Neighbourhood: {{contact.neighbourhood}}</p>
+
+          </div>
+        </div>
+      </div>
+{% endfor %}
+</div>
+
+{% else %}
+<h4>Add Contacts <a href="{% url 'newcontacts' %}">here</a></h4>
+{% endif %}
+</div>
+
+{% endblock %}
