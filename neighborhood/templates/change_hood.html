@@ -1,4 +1,4 @@
-{% load bootstrap4 %} 
+{% load bootstrap3 %} 
 {% load staticfiles %}
 <!DOCTYPE html>
 <html>
@@ -27,7 +27,8 @@
         </style>        
 
     <div class="intro">
-        <h2  style="margin-right:30%;margin-left:20%">New Neighbourhood</h2>
+        <h2  style="margin-right:30%;margin-left:20%">Change your neighbor hood</h2>
+        <h3 style="margin-right:30%;margin-left:20%">Input new neigborhood name</h3>
       </div>
 <hr>
   <form  action="{%url 'newneighbourhood'%}" method="post" enctype="multipart/form-data"  style="margin-right:30%;margin-left:20%">
