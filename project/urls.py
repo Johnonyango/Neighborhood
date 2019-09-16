@@ -21,7 +21,7 @@ from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     url(r'^accounts/', include('registration.backends.simple.urls')),
-    url(r'^logout/$', views.logout, {"next_page": '/'}), 
+    url(r'^logout/$', views.logout, {"next_page": '/'}, name='password_reset_done'), 
     url(r'^admin/', admin.site.urls),
     url(r'',include('neighborhood.urls')),
     url(r'^password_reset/$', auth_views.password_reset, name='password_reset'),
