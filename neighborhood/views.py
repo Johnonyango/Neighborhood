@@ -150,7 +150,7 @@ def newprofile(request):
   
   
   if request.method == 'POST':
-    instance = get_object_or_404(Profile, user=frank)
+    instance = get_object_or_404(Profile, user=user)
     form = ProfileForm(request.POST, request.FILES,instance=instance)
     if form.is_valid():
       form.save()
