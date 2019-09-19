@@ -3,16 +3,6 @@ from .models import Profile, Neighbourhood, Business
 
 
 
-class ProfileTestClass(TestCase):
-  """  
-  Tests Profile class and its functions
-  """
-
-  def test_save_method(self):
-      """
-      Function to test that profile is being saved
-      """
-
 class NeighbourhoodTestClass(TestCase):
   """  
   Tests Neighbourhood class and its functions
